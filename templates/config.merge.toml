@@ -1,0 +1,21 @@
+# 合并到指定 Cockpit 实例的 config.toml；不要覆盖整个文件或重复创建已有表。
+# 主模型由 Cockpit 启动参数 / 当前会话选择；不在此片段覆盖 model。
+model_catalog_json = "models.gpt-ds-v1.json"
+# 原有 model_provider 和 model_providers 表保留，由 Cockpit 绑定 CPA 账号。
+
+[features]
+multi_agent = true
+multi_agent_v2 = false
+
+[agents]
+enabled = true
+default_subagent_model = "deepseek-v4.1-flash"
+default_subagent_reasoning_effort = "high"
+max_concurrent_threads_per_session = 4
+max_depth = 2
+
+# 新版运行时会发现 agents/ 下的独立 TOML。
+# 如果本机版本还需显式注册，可合并以下表，并检查是否与现有声明重复。
+# [agents.deepseek_worker]
+# description = "DeepSeek worker for delegated implementation tasks."
+# config_file = "agents/deepseek_worker.toml"

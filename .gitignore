@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store
+.env
+.env.*
+*.zip
+repair_backups/
+state_*.sqlite*
+sessions/
+auth.json
+models_cache.json
+models.gpt-ds-v1.json

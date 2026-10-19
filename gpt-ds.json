@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "name": "gpt-ds",
+  "supported_targets": ["codex"],
+  "installer_hosts": "Any agent harness able to read files and run Python 3.11+",
+  "agent_entrypoint": "INSTALL_AGENT.md",
+  "cli_entrypoint": "configure.py",
+  "python_requires": ">=3.11",
+  "dependencies": [],
+  "defaults": {
+    "parent_model": "preserve actual launcher/session selection",
+    "parent_provider": "preserve existing account and authentication",
+    "expected_provider_host": "cpa.gojia.cloud",
+    "worker_role": "deepseek_worker",
+    "worker_model": "deepseek-v4.1-flash",
+    "worker_reasoning_effort": "high",
+    "worker_context_window": 1000000,
+    "worker_max_context_window": 1000000,
+    "worker_auto_compact_token_limit": 900000,
+    "multi_agent_version": "v1"
+  },
+  "invariants": {
+    "explicit_instance_required_for_writes": true,
+    "dry_run_by_default": true,
+    "backup_before_write": true,
+    "automatic_restart": false,
+    "automatic_account_changes": false,
+    "automatic_history_migration": false,
+    "network_requests_by_installer": false
+  },
+  "states": ["preview", "configured_pending_manual_restart", "native_verified"],
+  "native_test_prompt": "templates/native-self-check.md",
+  "test_command": "python3 -m unittest discover -s tests -v"
+}

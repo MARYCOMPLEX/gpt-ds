@@ -1,0 +1,1 @@
+Read `AGENTS.md`, then `INSTALL_AGENT.md` for installation requests. You are the installer host; the only supported target harness is Codex. Do not modify this host's own configuration or restart anything automatically.
